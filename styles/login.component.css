@@ -1,0 +1,21 @@
+td {
+    padding: 0 15 0 0
+}
+
+label {
+    color: seagreen
+}
+
+input {
+    color: blue;
+}
+
+button {
+    margin: 5 0 0 0;
+    color: seagreen;
+}
+
+button:disabled {
+    color: gray;
+    border-style: ridge;
+}

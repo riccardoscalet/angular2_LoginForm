@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [{
+        //  To debug on Chrome:
+        //      1. Kill all Chrome processes (easier with "gnome-system-monitor").
+        //      2. Execute "google-chrome --remote-debugging-port=9222".
+        //      3. In VSCode, start debug with the configuration below.
+        //      Note: You can't debug in both VSCode and Chrome. One or the other.
+
+        "name": "Debug with Chrome",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:3000/",
+        "preLaunchTask": "tsc",
+        "sourceMaps": true,
+        "webRoot": "${workspaceRoot}"
+    }]
+}

@@ -1,0 +1,18 @@
+<h2>My Heroes</h2>
+<ul class="heroes">
+    <!-- *ngFor - Cycles on an array. Many Angular2 commands begin with *. -->
+    <!-- [class.selected] - Sets true or false depending on whether the hero is selected. -->
+    <!-- (click) - The click event on this element. -->
+    <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="selectHero(hero)">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+</ul>
+<div *ngIf="selectedHero">
+    <h2>
+        <!-- The property is modified using a pipeline. -->
+        {{selectedHero.name | uppercase}} is my hero
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+</div>
+<!-- [hero] sets the input parameter of the component (in this case hero-detail.component.ts) -->
+<!--<my-hero-detail [hero]="selectedHero"></my-hero-detail>-->
