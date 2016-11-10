@@ -9,10 +9,12 @@
     </tr>
     <tr>
         <td></td>
-        <td><button [disabled]="!username || !password" (click)="login()">Login</button></td>
+        <td><button [disabled]="!username || !password" (click)="login()">Login</button>
+            <button [hidden]="false" (click)="logout()">Logout</button>
+        </td>
     </tr>
     <tr>
         <td></td>
         <td><label>{{resultMessage}}</label></td>
-    </tr>    
+    </tr>
 </table>

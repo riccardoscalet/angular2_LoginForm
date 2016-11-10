@@ -33,4 +33,14 @@ export class LoginComponent implements OnInit {
             });
     };
 
+    logout(): void {
+        this.loginService.logout()
+            .then(response => {
+                this.resultMessage = response.json().message;
+            })
+            .catch(reason => {
+                this.resultMessage = `Error! Message: ${reason.statusText}`;
+            });
+    }
+
 }

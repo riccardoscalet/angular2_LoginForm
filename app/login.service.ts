@@ -15,10 +15,14 @@ export class LoginService {
         }
 
         // This allows to send CORS calls with credentials. It's required to use cookies with Angular2.
-        let options: RequestOptionsArgs = {
-            withCredentials: true
-        }
+        let options: RequestOptionsArgs = { withCredentials: true }
 
         return this.http.post("http://localhost:8989/login", body, options).toPromise();
+    }
+
+    logout(): Promise < Response > {
+        let options: RequestOptionsArgs = { withCredentials: true }
+
+        return this.http.post("http://localhost:8989/logout", null, options).toPromise();
     }
 }

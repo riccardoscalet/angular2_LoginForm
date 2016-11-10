@@ -34,6 +34,8 @@ import { AppRoutingModule } from './app-routing.module';
         LoginComponent
     ],
 
+    providers: [],
+
     // Starting modules
     bootstrap: [AppComponent]
 })
