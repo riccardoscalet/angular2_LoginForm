@@ -3,8 +3,9 @@
     "configurations": [{
         //  To debug on Chrome:
         //      1. Kill all Chrome processes (easier with "gnome-system-monitor").
-        //      2. Execute "google-chrome --remote-debugging-port=9222".
-        //      3. In VSCode, start debug with the configuration below.
+        //      2. Start the angular2 application with "npm start".
+        //      3. Execute "google-chrome --remote-debugging-port=9222".
+        //      4. In VSCode, start debug with the configuration below.
         //      Note: You can't debug in both VSCode and Chrome. One or the other.
 
         "name": "Debug with Chrome",
