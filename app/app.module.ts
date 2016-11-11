@@ -11,9 +11,11 @@ import { RouterModule } from '@angular/router';
 // Components
 import { AppComponent } from "./app.component"
 import { LoginComponent } from "./login.component"
+import { UserListComponent } from "./user.list.component"
 
 // Providers
 import { AuthGuard } from "./auth.guard";
+import { LoginService } from "./login.service";
 
 // Module where all routes are defined
 import { AppRoutingModule } from './app-routing.module';
@@ -33,12 +35,14 @@ import { AppRoutingModule } from './app-routing.module';
     // Component modules
     declarations: [
         AppComponent,
-        LoginComponent
+        LoginComponent,
+        UserListComponent
     ],
 
     // Service providers
     providers: [
-        AuthGuard
+        AuthGuard,
+        LoginService
     ],
 
     // Starting modules

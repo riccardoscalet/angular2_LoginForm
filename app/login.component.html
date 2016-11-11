@@ -1,20 +1,9 @@
-<table>
-    <tr>
-        <td><label>Username </label></td>
-        <td><input [(ngModel)]="username" placeholder="Username" /></td>
-    </tr>
-    <tr>
-        <td><label>Password </label></td>
-        <td><input [(ngModel)]="password" placeholder="Password" /></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td><button [disabled]="!username || !password" (click)="login()">Login</button>
-            <button [hidden]="false" (click)="logout()">Logout</button>
-        </td>
-    </tr>
-    <tr>
-        <td></td>
-        <td><label>{{resultMessage}}</label></td>
-    </tr>
-</table>
+<div *ngIf="loggedin">
+    <button (click)="logout()">Logout</button>
+</div>
+
+<div *ngIf="!loggedin">
+    <input [(ngModel)]="username" placeholder="Username" />
+    <input [(ngModel)]="password" type="password" placeholder="Password" /><button [disabled]="!username || !password" (click)="login()">Login</button>
+    <label>{{resultMessage}}</label>
+</div>

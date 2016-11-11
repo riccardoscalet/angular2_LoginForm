@@ -23,4 +23,13 @@ export class LoginService {
         let options: RequestOptionsArgs = { withCredentials: true }
         return this.http.post("http://localhost:8989/logout", null, options).toPromise();
     }
+
+    auth(): Promise < boolean > {
+        return new Promise((resolve, reject) => {
+            let options: RequestOptionsArgs = { withCredentials: true }
+            this.http.post("http://localhost:8989/auth", null, options).toPromise()
+                .then(response => resolve(true))
+                .catch(reason => resolve(false));
+        });
+    }
 }

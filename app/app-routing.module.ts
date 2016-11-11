@@ -4,11 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from "./auth.guard";
 
 import { LoginComponent } from "./login.component";
+import { UserListComponent } from "./user.list.component"
 
 
 const routes: Routes = [{
         path: "",
-        redirectTo: "login",
+        redirectTo: "users",
         pathMatch: "full"
     },
     {
@@ -22,7 +23,7 @@ const routes: Routes = [{
     {
         path: "users",
         canActivate: [AuthGuard],
-        component: LoginComponent
+        component: UserListComponent
     },
     {
         // Not-found route, to redirect every wrong path (instead of causing an exception)

@@ -1,17 +1,14 @@
-td {
-    padding: 0 15 0 0
-}
-
 label {
     color: seagreen
 }
 
 input {
+    width: 150;
     color: blue;
 }
 
 button {
-    margin: 5 0 0 0;
+    margin: 0 5;
     color: seagreen;
 }
 

@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Http, Response, RequestOptionsArgs } from '@angular/http';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+
+import { LoginService } from "./login.service";
+
 
 /**
  * Checks whether client has a valid token.
@@ -15,17 +17,16 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-    constructor(private http: Http, private router: Router) {}
+    constructor(private router: Router, private loginService: LoginService) {}
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise < boolean > {
         return new Promise((resolve, reject) => {
-            let options: RequestOptionsArgs = { withCredentials: true }
-            this.http.post("http://localhost:8989/auth", null, options).toPromise()
-                .then(response => resolve(true))
-                .catch(reason => {
-                    this.router.navigate(['/login']);
-                    resolve(false);
+            this.loginService.auth()
+                .then(value => {
+                    if (!value) this.router.navigate(['/login']);
+                    resolve(value);
                 });
         });
     }
+
 }
