@@ -1,4 +1,4 @@
-// Login page
+// Login header
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -25,13 +25,17 @@ export class LoginComponent implements OnInit {
 
     ngOnInit(): void {
         this.loginService.auth()
-            .then(value => this.loggedin = value);
+            .then(value => {
+                this.loggedin = true;
+                this.username = value.username;
+            })
+            .catch(reason => this.loggedin = false);
     };
 
     login(): void {
         this.loginService.login(this.username, this.password)
             .then(response => {
-                if(response.json().result == 0) this.loggedin = true;
+                if (response.json().result == 0) this.loggedin = true;
                 this.resultMessage = response.json().message;
             })
             .catch(reason => {
@@ -44,12 +48,12 @@ export class LoginComponent implements OnInit {
     logout(): void {
         this.loginService.logout()
             .then(response => {
-                if(response.json().result == 0) this.loggedin = false;
+                if (response.json().result == 0) this.loggedin = false;
                 this.resultMessage = response.json().message;
             })
             .catch(reason => {
                 this.resultMessage = `Error! Message: ${reason.statusText}`;
-                let link = ["/login"];
+                let link = ["/welcome"];
                 this.router.navigate(link);
             });
     }

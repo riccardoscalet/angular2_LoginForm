@@ -4,18 +4,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from "./auth.guard";
 
 import { LoginComponent } from "./login.component";
+import { WelcomeComponent } from "./welcome.component"
 import { UserListComponent } from "./user.list.component"
 
 
 const routes: Routes = [{
         path: "",
-        redirectTo: "users",
+        redirectTo: "welcome",
         pathMatch: "full"
     },
     {
-        path: "login",
-        component: LoginComponent
+        path: "welcome",
+        component: WelcomeComponent
     },
+    // {
+    //     path: "login",
+    //     component: LoginComponent
+    // },
     // {
     //     path: 'detail/:id',
     //     component: HeroDetailComponent
@@ -28,7 +33,7 @@ const routes: Routes = [{
     {
         // Not-found route, to redirect every wrong path (instead of causing an exception)
         path: "**",
-        redirectTo: "login"
+        redirectTo: "welcome"
     }
 ];
 

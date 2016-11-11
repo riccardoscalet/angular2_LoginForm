@@ -1,3 +1,21 @@
+/* My Styles */
+
+div {
+    margin: 0 0 50 0;
+}
+
+nav {
+    display: inline-block;
+    margin: 0 50 0 0;
+}
+
+apollo-login {
+    display: inline-block;    
+}
+
+
+/* Tour of Heroes */
+
 h1 {
     font-size: 1.2em;
     color: #999;

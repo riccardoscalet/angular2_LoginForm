@@ -1,7 +1,12 @@
-<apollo-login></apollo-login>
-<nav>
-    <!-- Links to routes, defined in app.module.ts -->
-    <!--<a routerLink="/login" routerLinkActive="active">Login</a>-->
-</nav>
-<!-- Tag where route templates are appended -->
-<router-outlet></router-outlet>
+<div>
+    <nav>
+        <!-- Links to routes, defined in app.routing.ts -->
+        <a routerLink="/welcome" routerLinkActive="active">Home</a>
+        <a routerLink="/users" routerLinkActive="active">Users</a>
+    </nav>
+    <apollo-login></apollo-login>
+</div>
+<div>
+    <!-- Tag where route templates are appended -->
+    <router-outlet></router-outlet>
+</div>

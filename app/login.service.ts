@@ -8,6 +8,8 @@ export class LoginService {
 
     constructor(private http: Http) {}
 
+    //TODO Manage responses here and return typed objects in promises, so component doesn't have to worry about converting stuff
+
     login(username: string, password: string): Promise < Response > {
         let body = {
             username: username,
@@ -24,12 +26,20 @@ export class LoginService {
         return this.http.post("http://localhost:8989/logout", null, options).toPromise();
     }
 
-    auth(): Promise < boolean > {
+    /**
+     * Calls server to check if token is valid.
+     * Returns user credentials if it is, rejects the promise otherwise.
+     * 
+     * @returns {Promise < any >}
+     * 
+     * @memberOf LoginService
+     */
+    auth(): Promise < any > {
         return new Promise((resolve, reject) => {
             let options: RequestOptionsArgs = { withCredentials: true }
             this.http.post("http://localhost:8989/auth", null, options).toPromise()
-                .then(response => resolve(true))
-                .catch(reason => resolve(false));
+                .then(response => resolve(response.json().data))
+                .catch(reason => reject());
         });
     }
 }
