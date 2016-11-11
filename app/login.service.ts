@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, RequestOptionsArgs, Headers } from '@angular/http';
+import { Http, Response, RequestOptionsArgs } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 
@@ -14,15 +14,13 @@ export class LoginService {
             password: password
         }
 
-        // This allows to send CORS calls with credentials. It's required to use cookies with Angular2.
+        // Option withCredentials allows to send CORS calls with credentials. It's required to use cookies with Angular2.
         let options: RequestOptionsArgs = { withCredentials: true }
-
         return this.http.post("http://localhost:8989/login", body, options).toPromise();
     }
 
     logout(): Promise < Response > {
         let options: RequestOptionsArgs = { withCredentials: true }
-
         return this.http.post("http://localhost:8989/logout", null, options).toPromise();
     }
 }

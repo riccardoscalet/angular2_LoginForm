@@ -1,6 +1,7 @@
 // Apollo login page
 
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { LoginService } from "./login.service";
 
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
     password: string;
     resultMessage: string;
 
-    constructor(private loginService: LoginService) {}
+    constructor(private router: Router, private loginService: LoginService) {}
 
 
     ngOnInit(): void {};
@@ -40,6 +41,8 @@ export class LoginComponent implements OnInit {
             })
             .catch(reason => {
                 this.resultMessage = `Error! Message: ${reason.statusText}`;
+                let link = ["/login"];
+                this.router.navigate(link);
             });
     }
 
