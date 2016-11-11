@@ -16,3 +16,7 @@ button:disabled {
     color: gray;
     border-style: ridge;
 }
+
+.username {
+    color: blue;
+}

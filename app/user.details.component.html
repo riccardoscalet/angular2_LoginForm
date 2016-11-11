@@ -1,0 +1,20 @@
+<table *ngIf="user">
+    <tr>
+        <td>Username </td>
+        <td><input type="text" [(ngModel)]="user.username" /></td>
+    </tr>
+    <tr>
+        <td>Password </td>
+        <td><input type="password" [(ngModel)]="user.password" /></td>
+    </tr>
+    <tr>
+        <td>Email </td>
+        <td><input type="text" [(ngModel)]="user.email" /></td>
+    </tr>
+    <tr>
+        <td>Roles </td>
+        <td>
+            <div *ngFor="let role of user.scope"><input type="checkbox" name="{{role}}" />{{role}}</div>
+        </td>
+    </tr>
+</table>

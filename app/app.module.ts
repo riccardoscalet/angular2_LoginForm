@@ -13,6 +13,7 @@ import { AppComponent } from "./app.component"
 import { LoginComponent } from "./login.component"
 import { WelcomeComponent } from "./welcome.component"
 import { UserListComponent } from "./user.list.component"
+import { UserDetailsComponent } from "./user.details.component"
 
 // Providers
 import { AuthGuard } from "./auth.guard";
@@ -24,6 +25,7 @@ import { AppRoutingModule } from './app.routing.module';
 
 // Initializes main Angular2 module
 @NgModule({
+
     // Required Angular2 modules
     imports: [
         BrowserModule,
@@ -38,7 +40,8 @@ import { AppRoutingModule } from './app.routing.module';
         AppComponent,
         LoginComponent,
         WelcomeComponent,
-        UserListComponent
+        UserListComponent,
+        UserDetailsComponent
     ],
 
     // Service providers

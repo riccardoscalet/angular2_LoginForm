@@ -24,8 +24,7 @@ export class HeroDetailComponent implements OnInit {
         private location: Location
     ) {}
 
-    // Input decorator adds the "watcher" to the valued, keeping it "synched" everywhere, including html.
-    // The value can also be set from outside the component (in this case heroes.component.html)
+    // Input decorator allows the value can also be set from outside the component (in this case heroes.component.html)
     @Input()
     hero: Hero;
 

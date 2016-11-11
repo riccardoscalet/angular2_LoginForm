@@ -46,7 +46,10 @@ export class LoginComponent implements OnInit {
 
     logout(): void {
         this.loginService.logout()
-            .then(result => this.loggedin = false)
+            .then(result => {
+                this.loggedin = false;
+                this.router.navigate(["/welcome"]);
+            })
             .catch(reason => this.resultMessage = `Error! ${reason}`);
     }
 

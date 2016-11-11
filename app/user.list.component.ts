@@ -2,6 +2,9 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Http, Response, RequestOptionsArgs } from '@angular/http';
+import { Router } from '@angular/router';
+
+import { User } from "./model/user";
 
 
 @Component({
@@ -12,15 +15,18 @@ import { Http, Response, RequestOptionsArgs } from '@angular/http';
 })
 
 export class UserListComponent implements OnInit {
-    users: any[];
+    users: User[];
+    selectedUser: User;
 
-    constructor(private http: Http) {}
+    constructor(private http: Http, private router: Router) {}
 
     ngOnInit(): void {
         let options: RequestOptionsArgs = { withCredentials: true }
         this.http.get("http://localhost:8989/users", options).toPromise()
-            .then(response => {
-                this.users = response.json().data;
-            });
+            .then(response => this.users = response.json().data);
     };
+
+    selectUser(user: User): void {
+        this.selectedUser = user;
+    }
 }
