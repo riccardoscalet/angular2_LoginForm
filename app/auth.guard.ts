@@ -6,8 +6,7 @@ import { LoginService } from "./login.service";
 
 
 /**
- * Checks whether client has a valid token.
- * Used to protect restricted routes.
+ * Checks whether client has a valid token. Used to protect restricted routes.
  * Redirects to welcome/error page if something goes wrong.
  * 
  * @export
@@ -21,10 +20,9 @@ export class AuthGuard implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise < boolean > {
         return new Promise((resolve, reject) => {
+
             this.loginService.auth()
-                .then(value => {
-                    resolve(true);
-                })
+                .then(user => resolve(true))
                 .catch(reason => {
                     this.router.navigate(['/welcome']);
                     resolve(false);

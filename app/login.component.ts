@@ -25,37 +25,29 @@ export class LoginComponent implements OnInit {
 
     ngOnInit(): void {
         this.loginService.auth()
-            .then(value => {
+            .then(user => {
                 this.loggedin = true;
-                this.username = value.username;
+                this.username = user.username;
             })
             .catch(reason => this.loggedin = false);
     };
 
+
     login(): void {
         this.loginService.login(this.username, this.password)
-            .then(response => {
-                if (response.json().result == 0) this.loggedin = true;
-                this.resultMessage = response.json().message;
+            .then(user => {
+                this.loggedin = true;
+                this.username = user.username;
             })
-            .catch(reason => {
-                this.resultMessage = `Error! Message: ${reason.statusText}`;
-            });
+            .catch(reason => this.resultMessage = `Error! ${reason}`);
 
         this.password = null;
     };
 
     logout(): void {
         this.loginService.logout()
-            .then(response => {
-                if (response.json().result == 0) this.loggedin = false;
-                this.resultMessage = response.json().message;
-            })
-            .catch(reason => {
-                this.resultMessage = `Error! Message: ${reason.statusText}`;
-                let link = ["/welcome"];
-                this.router.navigate(link);
-            });
+            .then(result => this.loggedin = false)
+            .catch(reason => this.resultMessage = `Error! ${reason}`);
     }
 
 }
