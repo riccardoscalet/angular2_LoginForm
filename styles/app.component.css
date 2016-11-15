@@ -49,4 +49,5 @@ nav a:hover {
 
 nav a.active {
     color: #039be5;
+    border: 0.5px outset #999;
 }
