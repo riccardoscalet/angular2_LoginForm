@@ -7,6 +7,7 @@ import { LoginComponent } from "./login/login.component";
 import { WelcomeComponent } from "./login/welcome.component"
 import { UserListComponent } from "./users/user.list.component"
 import { UserDetailsComponent } from "./users/user.details.component"
+import { UserAccountComponent } from "./users/user.account.component"
 
 
 const routes: Routes = [{
@@ -17,6 +18,11 @@ const routes: Routes = [{
 {
     path: "welcome",
     component: WelcomeComponent
+},
+{
+    path: "account",
+    canActivate: [AuthGuard],
+    component: UserAccountComponent
 },
 {
     path: "users",

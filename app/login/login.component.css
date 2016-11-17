@@ -1,22 +1,4 @@
-label {
-    color: seagreen
-}
-
-input {
-    width: 150;
-    color: blue;
-}
-
-button {
-    margin: 0 5;
-    color: seagreen;
-}
-
-button:disabled {
-    color: gray;
-    border-style: ridge;
-}
-
 .username {
     color: blue;
+    margin: 0 10 0 0;
 }

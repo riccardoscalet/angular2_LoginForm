@@ -49,4 +49,8 @@ export class LoginComponent implements OnInit {
             })
             .catch(reason => this.resultMessage = `Error! ${reason}`);
     }
+
+    toAccount(): void {
+        this.router.navigate(["/account"]);
+    }
 }

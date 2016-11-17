@@ -18,11 +18,25 @@ body {
 }
 
 body,
-input[text],
+/*input[text],*/
 button {
-    color: #888;
+    color: seagreen;
     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
     font-size: 0.9em;
+}
+
+button:disabled {
+    color: gray;
+    border-style: ridge;
+}
+
+label {
+    color: seagreen
+}
+
+input {
+    width: 150;
+    color: blue;
 }
 
 * {
@@ -30,3 +44,4 @@ button {
     /*font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;*/
     font-size: 16;
 }
+

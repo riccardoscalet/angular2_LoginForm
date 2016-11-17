@@ -1,5 +1,6 @@
 <div *ngIf="loggedin">
-    <label class="username">{{username}}</label>
+    <label class="username">Welcome, {{username}}</label>
+    <button (click)="toAccount()">Manage</button>
     <button (click)="logout()">Logout</button>
 </div>
 

@@ -14,6 +14,7 @@ import { LoginComponent } from "./login/login.component"
 import { WelcomeComponent } from "./login/welcome.component"
 import { UserListComponent } from "./users/user.list.component"
 import { UserDetailsComponent } from "./users/user.details.component"
+import { UserAccountComponent } from "./users/user.account.component"
 
 // Providers
 import { AuthGuard } from "./auth.guard";
@@ -41,7 +42,8 @@ import { AppRoutingModule } from './app.routing.module';
         LoginComponent,
         WelcomeComponent,
         UserListComponent,
-        UserDetailsComponent
+        UserDetailsComponent,
+        UserAccountComponent
     ],
 
     // Service providers

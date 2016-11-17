@@ -1,0 +1,27 @@
+<table>
+    <tr>
+        <td>Username </td>
+        <td>{{user.username}}</td>
+    </tr>
+    <tr>
+        <td>Email </td>
+        <td>{{user.email}}</td>
+        <!--<td><input type="text" [(ngModel)]="user.email" /></td>-->
+    </tr>
+    <tr>
+        <td>Current password </td>
+        <td><input type="password" [(ngModel)]="oldPassword" /></td>
+    </tr>
+    <tr>
+        <td>New password </td>
+        <td><input type="password" [(ngModel)]="newPassword" /></td>
+    </tr>
+    <tr>
+        <td>New password (repeat) </td>
+        <td><input type="password" [(ngModel)]="newPasswordRepeat" /></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><button [disabled]="!oldPassword || !newPassword || newPassword != newPasswordRepeat" (click)="changePassword()">Change password</button></td>
+    </tr>
+</table>
