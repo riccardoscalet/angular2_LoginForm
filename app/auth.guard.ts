@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 declare var moment: any;
 
 import { LoginService } from "./login/login.service";
-import { UserCredentials } from "./model/userCredentials";
+import { UserCredentials } from "./shared/userCredentials";
 
 
 /**
