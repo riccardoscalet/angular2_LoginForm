@@ -18,13 +18,7 @@ export class UserDetailsComponent implements OnInit {
     @Input()
     user: User;
 
-    constructor() {}
+    constructor() { }
 
-    ngOnInit(): void {
-        // let options: RequestOptionsArgs = { withCredentials: true }
-        // this.http.get("http://localhost:8989/users", options).toPromise()
-        //     .then(response => {
-        //         this.users = response.json().data;
-        //     });
-    };
+    ngOnInit(): void { };
 }

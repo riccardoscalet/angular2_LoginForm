@@ -3,14 +3,13 @@ import { Http, Response, RequestOptionsArgs } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 
-import { User } from "./model/user";
+import { UserCredentials } from "./model/userCredentials";
 
 
 @Injectable()
 export class LoginService {
 
-    constructor(private http: Http) {}
-
+    constructor(private http: Http) { }
 
     /**
      * Calls login on server.
@@ -23,7 +22,7 @@ export class LoginService {
      * 
      * @memberOf LoginService
      */
-    login(username: string, password: string): Promise < User > {
+    login(username: string, password: string): Promise<UserCredentials> {
         let body = {
             username: username,
             password: password
@@ -36,7 +35,7 @@ export class LoginService {
             this.http.post("http://localhost:8989/login", body, options).toPromise()
                 .then(response => {
                     let res = response.json();
-                    if (res.result == 0) resolve(res.data as User)
+                    if (res.result == 0) resolve(res.data as UserCredentials)
                     else reject(res.message);
                 })
                 .catch(reason => reject(reason.statusText));
@@ -51,7 +50,7 @@ export class LoginService {
      * 
      * @memberOf LoginService
      */
-    logout(): Promise < boolean > {
+    logout(): Promise<boolean> {
         let options: RequestOptionsArgs = { withCredentials: true }
         return new Promise((resolve, reject) => {
             this.http.post("http://localhost:8989/logout", null, options).toPromise()
@@ -68,14 +67,13 @@ export class LoginService {
      * 
      * @memberOf LoginService
      */
-    auth(): Promise < User > {
+    auth(): Promise<UserCredentials> {
         let options: RequestOptionsArgs = { withCredentials: true }
 
         return new Promise((resolve, reject) => {
             this.http.post("http://localhost:8989/auth", null, options).toPromise()
-                .then(response => resolve(response.json().data as User))
+                .then(response => resolve(response.json().data as UserCredentials))
                 .catch(reason => reject());
         });
     }
-
 }

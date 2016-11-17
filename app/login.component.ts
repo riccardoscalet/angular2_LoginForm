@@ -19,9 +19,7 @@ export class LoginComponent implements OnInit {
     password: string;
     resultMessage: string;
 
-    constructor(private router: Router, private loginService: LoginService) {
-
-    }
+    constructor(private router: Router, private loginService: LoginService) { }
 
     ngOnInit(): void {
         this.loginService.auth()
@@ -31,7 +29,6 @@ export class LoginComponent implements OnInit {
             })
             .catch(reason => this.loggedin = false);
     };
-
 
     login(): void {
         this.loginService.login(this.username, this.password)
@@ -52,5 +49,4 @@ export class LoginComponent implements OnInit {
             })
             .catch(reason => this.resultMessage = `Error! ${reason}`);
     }
-
 }
