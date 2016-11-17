@@ -32,7 +32,7 @@ export class LoginService {
         let options: RequestOptionsArgs = { withCredentials: true }
 
         return new Promise((resolve, reject) => {
-            this.http.post("http://localhost:8989/login", body, options).toPromise()
+            this.http.post("http://localhost:8989/api/login", body, options).toPromise()
                 .then(response => {
                     let res = response.json();
                     if (res.result == 0) resolve(res.data as UserCredentials)
@@ -53,7 +53,7 @@ export class LoginService {
     logout(): Promise<boolean> {
         let options: RequestOptionsArgs = { withCredentials: true }
         return new Promise((resolve, reject) => {
-            this.http.post("http://localhost:8989/logout", null, options).toPromise()
+            this.http.post("http://localhost:8989/api/logout", null, options).toPromise()
                 .then(response => resolve(true))
                 .catch(reason => reject(reason.statusText));
         });
@@ -71,7 +71,7 @@ export class LoginService {
         let options: RequestOptionsArgs = { withCredentials: true }
 
         return new Promise((resolve, reject) => {
-            this.http.post("http://localhost:8989/auth", null, options).toPromise()
+            this.http.post("http://localhost:8989/api/auth", null, options).toPromise()
                 .then(response => resolve(response.json().data as UserCredentials))
                 .catch(reason => reject());
         });

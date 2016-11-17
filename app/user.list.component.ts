@@ -22,7 +22,7 @@ export class UserListComponent implements OnInit {
 
     ngOnInit(): void {
         let options: RequestOptionsArgs = { withCredentials: true }
-        this.http.get("http://localhost:8989/users", options).toPromise()
+        this.http.get("http://localhost:8989/api/users", options).toPromise()
             .then(response => this.users = response.json().data);
     };
 
