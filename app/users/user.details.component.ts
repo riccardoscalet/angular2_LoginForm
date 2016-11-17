@@ -2,14 +2,14 @@
 
 import { Component, Input, OnInit } from '@angular/core';
 
-import { User } from "./model/user";
+import { User } from "../model/user";
 
 
 @Component({
     moduleId: module.id,
     selector: "user-details",
     templateUrl: "user.details.component.html",
-    styleUrls: ["../styles/user.details.component.css"],
+    styleUrls: ["user.details.component.css"],
 })
 
 export class UserDetailsComponent implements OnInit {

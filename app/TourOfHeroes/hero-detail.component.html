@@ -1,8 +1,0 @@
-<div *ngIf="hero">
-    <h2>{{hero.name}}</h2>
-    <div><label>Id: </label>{{hero.id}}</div>
-    <!-- (ngModel) defined which field of the model must be mapped. -->
-    <div><label>Name: </label><input [(ngModel)]="hero.name" placeholder="Name"></div>
-    <div><label>Is this hero cool as fuck? </label>{{hero.name == "Banana God"}}</div>
-    <button (click)="goBack()">Back</button>
-</div>

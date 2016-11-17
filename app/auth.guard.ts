@@ -3,7 +3,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { Observable } from 'rxjs/Observable';
 declare var moment: any;
 
-import { LoginService } from "./login.service";
+import { LoginService } from "./login/login.service";
 import { UserCredentials } from "./model/userCredentials";
 
 

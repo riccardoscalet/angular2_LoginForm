@@ -3,7 +3,7 @@ import { Http, Response, RequestOptionsArgs } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 
-import { UserCredentials } from "./model/userCredentials";
+import { UserCredentials } from "../model/userCredentials";
 
 
 @Injectable()

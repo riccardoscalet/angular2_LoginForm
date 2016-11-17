@@ -10,14 +10,14 @@ import { RouterModule } from '@angular/router';
 
 // Components
 import { AppComponent } from "./app.component"
-import { LoginComponent } from "./login.component"
-import { WelcomeComponent } from "./welcome.component"
-import { UserListComponent } from "./user.list.component"
-import { UserDetailsComponent } from "./user.details.component"
+import { LoginComponent } from "./login/login.component"
+import { WelcomeComponent } from "./login/welcome.component"
+import { UserListComponent } from "./users/user.list.component"
+import { UserDetailsComponent } from "./users/user.details.component"
 
 // Providers
 import { AuthGuard } from "./auth.guard";
-import { LoginService } from "./login.service";
+import { LoginService } from "./login/login.service";
 
 // Module where all routes are defined
 import { AppRoutingModule } from './app.routing.module';
@@ -55,4 +55,4 @@ import { AppRoutingModule } from './app.routing.module';
 })
 
 
-export class AppModule {}
+export class AppModule { }

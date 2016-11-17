@@ -4,21 +4,21 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Response, RequestOptionsArgs } from '@angular/http';
 import { Router } from '@angular/router';
 
-import { User } from "./model/user";
+import { User } from "../model/user";
 
 
 @Component({
     moduleId: module.id,
     selector: "user-list",
     templateUrl: "user.list.component.html",
-    styleUrls: ["../styles/user.list.component.css"],
+    styleUrls: ["user.list.component.css"],
 })
 
 export class UserListComponent implements OnInit {
     users: User[];
     selectedUser: User;
 
-    constructor(private http: Http, private router: Router) {}
+    constructor(private http: Http, private router: Router) { }
 
     ngOnInit(): void {
         let options: RequestOptionsArgs = { withCredentials: true }
