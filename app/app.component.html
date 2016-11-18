@@ -2,7 +2,7 @@
     <nav>
         <!-- Links to routes, defined in app.routing.ts -->
         <a routerLink="/welcome" routerLinkActive="active">Home</a>
-        <a routerLink="/users" routerLinkActive="active" *ngIf="isAdmin()">Users</a>
+        <a routerLink="/users" routerLinkActive="active" *ngIf="loginService.hasScope('admin')">Users</a>
     </nav>
     <apollo-login></apollo-login>
 </div>

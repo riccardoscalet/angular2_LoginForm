@@ -3,7 +3,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { User } from "../shared/user";
-import { AuthGuard } from "../auth.guard";
+import { LoginService } from "../login/login.service";
 
 @Component({
     moduleId: module.id,
@@ -18,10 +18,13 @@ export class UserAccountComponent implements OnInit {
     newPassword: string;
     newPasswordRepeat: string;
 
-    constructor(private authGuard: AuthGuard) { }
+    constructor(private loginService: LoginService) { }
 
     ngOnInit(): void {
-        this.user = this.authGuard.credentials;
+        this.loginService.auth()
+            .then(credentials =>
+                this.user = credentials
+            );
     };
 
     changePassword(): void {

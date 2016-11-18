@@ -3,7 +3,7 @@
 import { Component } from '@angular/core';
 
 import { User } from "./shared/user";
-import { AuthGuard } from "./auth.guard";
+import { LoginService } from "./login/login.service";
 
 
 @Component({
@@ -13,17 +13,5 @@ import { AuthGuard } from "./auth.guard";
 })
 
 export class AppComponent {
-
-    constructor(private authGuard: AuthGuard) { }
-
-    isAdmin(): boolean {
-        if(!this.authGuard.credentials) return false;
-        
-        let admin = this.authGuard.credentials.scope.find((value, index, role) => {
-            if(value == "admin") return true;
-        });
-
-        return (admin != null);
-    }
-
+    constructor(private loginService: LoginService) { }
 }
